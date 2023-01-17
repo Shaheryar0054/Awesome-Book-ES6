@@ -1,5 +1,5 @@
 export default class store {
-  static getBooks() {
+  static getBooks = () => {
     let books;
     if (localStorage.getItem('books') === null) {
       books = [];
@@ -9,7 +9,7 @@ export default class store {
     return books;
   }
 
-  static addBook(book) {
+  static addBook = (book) => {
     const books = store.getBooks();
 
     books.push(book);
@@ -17,7 +17,7 @@ export default class store {
     localStorage.setItem('books', JSON.stringify(books));
   }
 
-  static removeBook(authore) {
+  static removeBook = (authore) => {
     const books = store.getBooks();
     books.forEach((book, index) => {
       if (book.authore === authore) {
